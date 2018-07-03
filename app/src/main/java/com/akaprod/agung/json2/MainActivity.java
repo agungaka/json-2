@@ -3,6 +3,9 @@ package com.akaprod.agung.json2;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -17,6 +20,8 @@ import javax.net.ssl.HttpsURLConnection;
 public class MainActivity extends AppCompatActivity {
 
     TextView hasil;
+    Button klikMe;
+    EditText input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +29,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         hasil = (TextView) findViewById(R.id.hasil);
+        klikMe = (Button) findViewById(R.id.klikMe);
+        input = (EditText) findViewById(R.id.input);
 
-        String address = "https://owlbot.info/api/v1/dictionary/owl?format=json";
 
-        new requestData().execute(address);
+
+
+
+        klikMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String keyword = input.getText().toString().trim();
+                String address = "https://owlbot.info/api/v1/dictionary/"+keyword+"?format=json";
+                new requestData().execute(address);
+
+            }
+        });
     }
 
     private class requestData extends AsyncTask<String,String,String>{

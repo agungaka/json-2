@@ -7,10 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Isi kata untuk API"
+        android:id="@+id/input"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="klik"
+        android:id="@+id/klikMe"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Halo Dunia!"
         android:id="@+id/hasil" />
 
 </LinearLayout>
